@@ -1,0 +1,393 @@
+/* RESET E CONFIGURAÇÕES BÁSICAS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding-top: 70px;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ====================== NAVBAR ====================== */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #f9f9f9;
+  flex-wrap: wrap;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Links da Navbar */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #699dc0;
+  font-size: 18px;
+  font-weight: 500;
+  position: relative;
+}
+
+.nav-links a::before {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: transparent;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.nav-links a:hover::before {
+  background-color: #c9e1f2;
+}
+
+/* Barra de pesquisa */
+.search-container {
+  position: relative;
+  flex: 1;
+  max-width: 500px;
+  margin: 10px 0;
+}
+
+.search-container input {
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 20px;
+  background-color: #b1d4ec;
+}
+
+.search-container input:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(135, 185, 220, 0.8);
+}
+
+.icon-search {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+}
+
+/* Ícones da navbar */
+.icon-container {
+  display: flex;
+  gap: 15px;
+}
+
+.icon-box {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #b1d4ec;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.icon-box:hover {
+  background-color: rgb(226, 232, 236);
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* Responsividade para Navbar */
+@media (max-width: 500px) {
+  .navbar {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .nav-links {
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .search-container {
+    max-width: 60%;
+  }
+
+  .icon-container {
+    justify-content: center;
+  }
+}
+
+/* ====================== RODAPÉ ====================== */
+.rodape {
+  width: 100%;
+  background-color: #d9f4ff;
+  color: #333;
+  text-align: center;
+  padding: 10px;
+  font-size: 0.8rem;
+  position: relative;
+  margin-top: auto;
+}
+
+/* ====================== BORDAS ====================== */
+.borda {
+  border-bottom: 2px solid #C8E1F2;
+  width: 100%;
+  position: relative;
+  top: 0px;
+}
+
+/* ====================== PREFERÊNCIAS ====================== */
+.preferences {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  margin-left: 5vh;
+  margin-top: 25px;
+  margin-bottom: 14px;
+}
+
+.preferences span {
+  font-weight: bold;
+}
+
+.tag {
+  background-color: #f0f0f0;
+  color: #333;
+  padding: 5px 10px;
+  border-radius: 20px;
+  display: inline-block;
+  margin: 0 17px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.tag:hover {
+  background-color: #C8E1F2;
+}
+
+/* ====================== GALERIA ====================== */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+.gallery-item {
+  display: flex;
+  background-color: #849eaf;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+
+/* Formatos dos itens da galeria */
+.square {
+  width: 300px;
+  height: 300px;
+  border-radius: 16px;
+}
+
+.circle {
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+}
+
+.rectangle {
+  border-radius: 16px;
+}
+
+.rectangle.wide {
+  width: 400px;
+  height: 150px;
+}
+
+.rectangle.tall {
+  width: 200px;
+  height: 300px;
+}
+
+.gallery-item:hover {
+  transform: scale(1.05) translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+}
+
+/* ====================== SEÇÃO DO ARTISTA ====================== */
+.artist-section {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  margin: 40px auto;
+  padding: 20px;
+  max-width: 1100px;
+}
+
+.artist-photo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 250px;
+  text-align: center;
+}
+
+.artist-photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.artist-photo-container h2 {
+  font-size: 24px;
+  color: #333;
+  margin-top: 8px;
+}
+
+.artist-info-container {
+  flex: 1;
+}
+
+h4 {
+  text-align: center;
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.about-artist p {
+  font-size: 18px;
+  color: #555;
+  line-height: 1.7;
+}
+
+/* ====================== OBRA ====================== */
+.obra-container {
+  display: flex;
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 1200px;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.obra-imagem {
+  flex-shrink: 0;
+  width: 300px;
+  height: 200px;
+  background-color: #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.obra-imagem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.obra-info {
+  flex: 1;
+}
+
+.obra-info h2 {
+  font-size: 24px;
+  color: #333;
+}
+
+.obra-info p {
+  font-size: 18px;
+  color: #555;
+  line-height: 1.5;
+}
+
+.leia-mais {
+  color: #699dc0;
+  cursor: pointer;
+}
+
+/* ====================== COMENTÁRIOS ====================== */
+.comentarios {
+  margin: 40px auto;
+  max-width: 800px;
+}
+
+.comentario {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.comentario .icon {
+  width: 40px;
+  height: 40px;
+  background-color: #b1d4ec;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.comentario p {
+  flex: 1;
+  font-size: 16px;
+  color: #555;
+}
+
+.form-comentario {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.form-comentario input {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-comentario button {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #699dc0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.form-comentario button:hover {
+  background-color: #577d9b;
+}
